@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Improvmator</title>
+		<script type="text/javascript" charset="utf-8" src="libs/src-min-noconflict/ace.js"></script>
+		<script src="libs/angular.js"></script>
+		<script src="libs/ui-ace.js"></script>
+		<script src="options.js"></script>
+		<link rel="stylesheet" href="styles.css"/>
+	</head>
+	<body ng-app="app">
+		<main ng-controller="WrapCtrl">
+			<h1>Rules:</h1>
+			Total rules: {{data.rules.length}}
+			<section id="rules">
+				<article ng-repeat="rule in data.rules track by rule.created">
+					<input placeholder="url pattern" ng-model-options="{'debounce': 1000}" ng-model="rule.urlPattern" />
+					<div ui-ace="aceOption" class="editor" ng-model-options="{'debounce': 1000}" ng-model="rule.script"></div>
+					<button ng-click="removeRule(rule)">removeRule</button>
+				</article>
+				<article>
+					<button class="add-rule-btn" ng-click="addRule()">addRule</button>
+				</article>
+			</section>
+		</main>
+	</body>
+</html>
