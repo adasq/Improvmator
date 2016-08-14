@@ -1,14 +1,21 @@
 var defaulRules = [{
-						urlPattern: 'docs.angularjs.org',
-						script: `function printVersions(){
+						urlPattern: '(code|docs).angularjs.org',
+						script: `//declare action functions and return it as array
+//go docs.angularjs.org, and run Improvmator exension icon
+
+var printVersions= function(){
     var selectElem = document.querySelector('.version-picker');
     var scope = angular.element(selectElem).scope();
     alert(scope.docs_versions.length);
-}
+};
 
+//you can specify longer action name using description property of function object
 printVersions.description = 'Print doc versions list length';
 
+//return list of action-functions
 return [
+     //when there is no description set to function,
+     //the function name will be used
     function angularVersion(){
         alert(angular.version.full);
     },
