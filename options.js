@@ -1,3 +1,21 @@
+var defaulRules = [{
+						urlPattern: 'docs.angularjs.org',
+						script: `function printVersions(){
+    var selectElem = document.querySelector('.version-picker');
+    var scope = angular.element(selectElem).scope();
+    alert(scope.docs_versions.length);
+}
+
+printVersions.description = 'Print doc versions list length';
+
+return [
+    function angularVersion(){
+        alert(angular.version.full);
+    },
+    printVersions
+];`
+					}];
+
 
 angular
 .module('app', ['ui.ace'])
@@ -10,10 +28,7 @@ angular
 				that.data = response.data;
 			}else{
 				that.data = {
-					rules: [{
-						urlPattern: 'x-kom.pl',
-						script: 'console.log(111);'
-					}]
+					rules: defaulRules
 				};
 			}
 		    cb(that.data);
