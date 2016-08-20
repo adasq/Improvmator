@@ -45,16 +45,19 @@
 			data && data.type && communicationProtocol[data.type](data, respond);
 		});
 	 
-		loadScript('CommunicationManager.js');
-		loadScript('page_script.js');	
+		loadScript('CommunicationManager.js', function(){
+			loadScript('page_script.js');
+		});
+		
 	}
 
  
 //=================================================================================================
-function loadScript(url){
+function loadScript(url, cb){
 			var injectScript = document.createElement('script');
 			injectScript.src = chrome.extension.getURL(url);			
 			injectScript.onload = function() {
+				cb && cb();
 			  this.parentNode.removeChild(this);		  
 			};			
 			(document.head || document.documentElement).appendChild(injectScript);	
@@ -141,3 +144,5 @@ ScriptsManager.prototype.generateActionManager = function(){
 
 	var scriptManager = new ScriptsManager();
 	scriptManager.load(onScriptsLoaded);
+
+	

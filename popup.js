@@ -33,8 +33,11 @@ setTimeout(function(){
 	cm.contentScript.onMessage(function(data, respond){
 			data && data.type && communicationProtocol[data.type](data, respond);
 	});
-}, 200);
+}, 1);
 
+setInterval(function(){
+	console.log(self.disable);
+}, 1000)
 
 function callAction(action){
 	cm.contentScript.send({type: 'CALL_ACTION', action: action.name}, function(response) {});

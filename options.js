@@ -71,7 +71,8 @@ angular
 		$scope.data = data;
 		$scope.$watch('data.rules', function(nv){
 			StorageService.save();
-			console.log('saved...')
+			chrome.runtime.sendMessage(data);
+			console.log('saved...');
 		}, true);
 		$scope.$apply();
 	});

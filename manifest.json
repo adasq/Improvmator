@@ -13,12 +13,15 @@
       "matches": ["*://*/*"],
       "run_at": "document_start"
    } ],
-   "browser_action": {
+   "background": {
+      "scripts": ["background.js"]
+    },
+   "page_action": {
     "default_popup": "popup.html"
    },
    "manifest_version": 2,
    "options_page": "options.html",
-   "permissions": ["storage", "notifications"],
+   "permissions": ["storage", "declarativeContent"],
    "update_url": "https://clients2.google.com/service/update2/crx",
    "version": "1.0.1",
    "content_security_policy": "default-src 'self'; img-src data:; style-src 'unsafe-inline'; connect-src ws://localhost:8080; script-src 'sha256-Kx4yW57BOw/FT/2dNXXG6jdB87VR9+Pogqd5wZlhvW0=' 'sha256-0M7SdGVw/oYEJ6LlngMFUq8XFB8wylZHbE3HbGBjvbg=' 'sha256-oKAVhXFje9Z3c+GEdHk060KV4TzOWv4O0l/RsffQ/Ak='",
