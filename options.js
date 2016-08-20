@@ -50,7 +50,7 @@ angular
 	$scope.addRule = function(){
 		$scope.data.rules.push({
 			created: +new Date(),
-			script: '//and the code goes here...\nconsole.log(extensify);'
+			script: '//and the code goes here...\n'
 		});
 	}
 	$scope.aceOption = {

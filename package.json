@@ -1,0 +1,26 @@
+{
+  "name": "improvmator",
+  "version": "1.0.0",
+  "description": "JavaScript code injection manager",
+  "main": "CommunicationManager.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adasq/Improvmator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adasq/Improvmator/issues"
+  },
+  "homepage": "https://github.com/adasq/Improvmator#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-zip": "^3.2.0",
+    "gulp-bump": "^2.4.0"
+  },
+  "dependencies": {
+  }
+}
