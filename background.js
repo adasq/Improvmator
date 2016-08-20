@@ -12,6 +12,7 @@ chrome.storage.local.get({
 
 
 function updateRules(rules) {
+    if(!rules)return;
     var chromeRule = {
         conditions: [],
         actions: [new chrome.declarativeContent.ShowPageAction()]
