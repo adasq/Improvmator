@@ -1,4 +1,5 @@
-var defaulRules = [{
+function getDefaultRules(){
+	return [{
 						urlPattern: '(code|docs).angularjs.org',
 						script: `//declare action functions and return it as array
 //go docs.angularjs.org, and run Improvmator exension icon
@@ -22,7 +23,7 @@ return [
     printVersions
 ];`
 					}];
-
+}
 
 angular
 .module('app', ['ui.ace'])
@@ -32,10 +33,11 @@ angular
 	this.load = function(cb){
 		chrome.storage.local.get({data: true}, function(response) {
 			if(response && typeof response.data === 'object' && response.data.rules){
+				console.log(response.data.rules);
 				that.data = response.data;
 			}else{
 				that.data = {
-					rules: defaulRules
+					rules: getDefaultRules()
 				};
 			}
 		    cb(that.data);
@@ -43,10 +45,32 @@ angular
 	}
 	
 	this.save = function(){
+		that.data.rules.forEach(function(rule, i){
+			rule.id = i;
+		});
 		chrome.storage.local.set({'data': that.data}, function() {});
 	};
 })
 .controller('WrapCtrl', function($scope, StorageService){
+	$scope.export = function(){
+		var myWindow = window.open("", "MsgWindow", "width=800,height=600");
+		myWindow.document.write(JSON.stringify($scope.data));
+	};
+	$scope.import = function(){
+		var dataToImport = window.prompt('paste data');
+		try {
+			var data = JSON.parse(dataToImport);
+			if(typeof data === 'object' && data.rules && Array.isArray(data.rules)){
+				$scope.data.rules = data.rules;
+			}
+		}catch(e){
+			console.log('failed to parse');
+		}
+	};
+	$scope.setDefaultRules = function(){
+		$scope.data.rules = getDefaultRules();
+	};
+
 	$scope.addRule = function(){
 		$scope.data.rules.push({
 			created: +new Date(),

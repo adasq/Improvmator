@@ -12,8 +12,14 @@
 		<main ng-controller="WrapCtrl">
 			<h1>Rules:</h1>
 			Total rules: {{data.rules.length}}
+			<section>
+				<button ng-click="export()">export</button>
+				<button ng-click="import()">import</button>
+				<button ng-click="setDefaultRules()">setDefaultRules</button>
+				
+			</section>
 			<section id="rules">
-				<article ng-repeat="rule in data.rules track by rule.created">
+				<article ng-repeat="rule in data.rules track by rule.id">
 					<input placeholder="url pattern" ng-model-options="{'debounce': 1000}" ng-model="rule.urlPattern" />
 					<div ui-ace="aceOption" class="editor" ng-model-options="{'debounce': 1000}" ng-model="rule.script"></div>
 					<button ng-click="removeRule(rule)">removeRule</button>

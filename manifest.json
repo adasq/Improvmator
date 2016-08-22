@@ -23,7 +23,7 @@
    "options_page": "options.html",
    "permissions": ["storage", "declarativeContent"],
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "1.0.6",
+   "version": "1.0.7",
    "content_security_policy": "default-src 'self'; img-src data:; style-src 'unsafe-inline'; connect-src ws://localhost:8080; script-src 'sha256-Kx4yW57BOw/FT/2dNXXG6jdB87VR9+Pogqd5wZlhvW0=' 'sha256-0M7SdGVw/oYEJ6LlngMFUq8XFB8wylZHbE3HbGBjvbg=' 'sha256-oKAVhXFje9Z3c+GEdHk060KV4TzOWv4O0l/RsffQ/Ak='",
    "web_accessible_resources": ["CommunicationManager.js", "src/inject/inject.js", "page_script.js"]
 }
