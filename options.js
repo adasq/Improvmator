@@ -7,7 +7,7 @@ function getDefaultRules(){
 var printVersions= function(){
     var selectElem = document.querySelector('.version-picker');
     var scope = angular.element(selectElem).scope();
-    alert(scope.docs_versions.length);
+    alert(scope.$ctrl.versions.length);
 };
 
 //you can specify longer action name using description property of function object

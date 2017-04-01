@@ -3,29 +3,37 @@
 	<head>
 		<title>Improvmator</title>
 		<script type="text/javascript" charset="utf-8" src="libs/src-min-noconflict/ace.js"></script>
-		<script src="libs/angular.js"></script>
-		<script src="libs/ui-ace.js"></script>
+		<script src="libs/angular/angular.min.js"></script>
+		<script src="libs/angular-ui-ace/src/ui-ace.js"></script>
 		<script src="options.js"></script>
 		<link rel="stylesheet" href="styles.css"/>
+		<link rel="stylesheet" type="text/css" href="libs/purecss/build/pure-min.css">
 	</head>
 	<body ng-app="app">
 		<main ng-controller="WrapCtrl">
 			<h1>Rules:</h1>
 			Total rules: {{data.rules.length}}
 			<section>
-				<button ng-click="export()">export</button>
-				<button ng-click="import()">import</button>
-				<button ng-click="setDefaultRules()">setDefaultRules</button>
+				<a class="pure-button pure-button-primary" ng-click="export()">
+					export
+				</a>
+				<a class="pure-button pure-button-primary" ng-click="import()">
+					import
+				</a>
+				<a class="pure-button pure-button-primary" ng-click="setDefaultRules()">setDefaultRules
+				</a>
 				
 			</section>
 			<section id="rules">
 				<article ng-repeat="rule in data.rules track by rule.id">
 					<input placeholder="url pattern" ng-model-options="{'debounce': 1000}" ng-model="rule.urlPattern" />
 					<div ui-ace="aceOption" class="editor" ng-model-options="{'debounce': 1000}" ng-model="rule.script"></div>
-					<button ng-click="removeRule(rule)">removeRule</button>
+					<a class="pure-button pure-button-primary" ng-click="removeRule(rule)">removeRule</a>
 				</article>
 				<article>
-					<button class="add-rule-btn" ng-click="addRule()">addRule</button>
+					<a class="pure-button pure-button-primary add-rule-btn" ng-click="addRule()">
+						addRule
+					</a>
 				</article>
 			</section>
 		</main>

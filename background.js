@@ -29,17 +29,3 @@ function updateRules(rules) {
         chrome.declarativeContent.onPageChanged.addRules([chromeRule]);
     });
 }
-
-
-// setInterval(function(){
-//     chrome.declarativeContent.onPageChanged.getRules(undefined,function(rules){
-//         console.log(rules)
-//     })
-// },4000)
-
-
-//   chrome.runtime.onInstalled.addListener(function(details) {
-//     chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-//       chrome.declarativeContent.onPageChanged.addRules(chromeRules);
-//     });
-// });

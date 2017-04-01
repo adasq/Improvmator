@@ -1,9 +1,24 @@
-var gulp = require('gulp');
+const gulp = require('gulp');
 const zip = require('gulp-zip');
-var bump = require('gulp-bump');
-var fs = require('fs'); 
+const gulpCopy = require('gulp-copy');
+const bump = require('gulp-bump');
+const fs = require('fs'); 
 
-gulp.task('bump', function(cb){
+
+gulp.task('copy', () => {
+var sourceFiles = [ 
+	'node_modules/purecss/build/pure-min.css',
+	'node_modules/angular/angular.min.js',
+	'node_modules/angular-ui-ace/src/ui-ace.js'
+];
+var destination = 'libs/';
+
+return gulp
+    .src(sourceFiles)
+    .pipe(gulpCopy('libs', {prefix: 1}));
+});
+
+gulp.task('bump', ['copy'], function(cb){
   gulp.src(['./manifest.json'])
   .pipe(bump({type:'patch'}))
   .pipe(gulp.dest('./'))
