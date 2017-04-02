@@ -4,29 +4,33 @@ input, textarea, body {
 	border: none;
 }
 
-input, textarea { 
-	margin-bottom: 5px;
-}
+
 
 textarea {
 	height: 200px;
 }
 
+input {
+	margin-bottom: 10px;
+}
+
 body {
+	font-family: Arial;
 }
 
 main {
-	border-radius: 6px;
 	width: 600px;
-	background-color: #A7DBD8;
 	margin: 0 auto;
 }
 
 article {
+	background-color2: #eee;
 	padding: 10px;
+	margin-top: 10px;
 }
 
 article input {
+	height: 20px;
 	width: 100%;
 }
 
@@ -38,4 +42,13 @@ article textarea {
 .editor {
 	width: 580px;
 	height: 200px;
+}
+
+.options-wrap {
+	display: flex;
+}
+
+.options-wrap a {
+	margin-right: 2px;
+	width: 33%;
 }
